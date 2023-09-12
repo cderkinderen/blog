@@ -1,0 +1,25 @@
+---
+const posts = await Astro.glob("./*.md");
+---
+
+<h1>
+    Welcome to Christians Coding Blog where I symplify the learning prcoess for
+    all you nuffies out there.
+</h1>
+{
+    posts.map((post) => {
+        const title = post.frontmatter.title;
+        const url = post.url;
+        return (
+            <a class="link" href={post.url}>
+                {title}
+            </a>
+        );
+    })
+}
+<style>
+    .link {
+        text-decoration: none;
+        display: block;
+    }
+</style>
